@@ -1,0 +1,15 @@
+<div class="form-container">
+  <a routerLink="/login" id="goback">Voltar</a>
+  <h2>Login personalizado</h2>
+
+  <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
+  <form #formData="ngForm" name="FormLogin" (ngSubmit)="onSubmit(formData)">
+
+    <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
+    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
+
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Log in</button>
+    <a routerLink="/signup" class="alc">Você ainda não tem uma conta?</a>
+</form>
+</div>
